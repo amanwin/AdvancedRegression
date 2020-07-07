@@ -24,5 +24,5 @@ You may recall that the general expression of a polynomial function is<br/>
  If n=2, it is called a quadratic or a second-degree polynomial; if n=3, it is called a cubic or a third-degree polynomial. <br/>
  Also, recall that the **roots of a polynomial** f(x) represent the values of x at which the function cuts the x-axis and that a polynomial function can have both **real or imaginary roots**.
  
- For example, the quadratic function $$f(x)=x^2-5x+6$$ has two real roots: $$x=2,3$$ , though the function $$f(x)=x^2+2x+10$$ does not have any real roots (and does not cut the x-axis). <br/>
+ For example, the quadratic function $f(x)=x^2-5x+6$ has two real roots: $x=2,3$ , though the function $f(x)=x^2+2x+10$ does not have any real roots (and does not cut the x-axis). <br/>
  So how can we take the decision of fitting a polynomial model, a sine curve or any other function by just looking at the plot? You'll learn to do that in the next segment.
