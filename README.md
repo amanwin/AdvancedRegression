@@ -115,6 +115,15 @@ Let's now learn to implement generalised regression in Python. Download the data
 
 [Generalized Regression practice file](dataset/generalised_regression.ipynb)
 
+In summary, in order to best fit a non-linear curve to the data, we figure out how close is the set of predicted values to the set of given values for the response variable just like in simple linear regression. The only additional thing you need to do is to pick the right features or functions of raw attributes and run a regression on features instead of a regression on raw attributes.
+
+To summarize, you learnt that one needs to follow a 3-step process to build a regression model: <br/>
+
+1. First, explore and visualize raw attributes to understand the shape of scatter plots.
+2. Second, we assessed which function of the explanatory variable would explain the shape of the data.  
+3. Lastly, we wrote the generalized regression formula using the matrix format. We then summed up the errors between predicted and actual response variables and minimised the residual sum of error to arrive at the best-fit regression curve<br/>
+Another thing to note is that the term 'linear' in regression depicts the linear expression in the coefficients of the linear combination. It does not mean linear expression in raw attributes or features.
+
 
 
 
