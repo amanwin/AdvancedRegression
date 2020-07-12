@@ -156,7 +156,7 @@ Lambda equal to zero implies that there is no regularization and there is a high
 
 ![title](img/ridge_regression2.JPG)
 
-![title](img/ridge_regression3.JPG)
+![title](img/ridge_regression3.jpg)
 
 In the formula on the left side before regularization, if X transpose X is singular then it cannot be inverted then this formula on left side can't be applied. However when we do regularization and use the modified formula on the right hand side, by adding lambda on all the diagonal elements of X transpose X then it turns out that the new matrix is far more likely to be invertible than the original matrix.<br/>
 Apart from the fact that regularization term results in a model which is not very complex. It also has this unexpected benefit which makes this whole process computationally far more stable and feasible than the original unregularized formulation of regression. This is ridge regression.
@@ -169,5 +169,29 @@ We discussed the two commonly used regularised regression methods - Ridge regres
 ### Pros and Cons of ridge and lasso regularization techniques
 One of the most important benefits of Lasso regression is that it results in model parameters such that the lesser important features' coefficients become zero. In other words, Lasso regression indirectly performs **feature selection**.
 
+## Ridge and Lasso Regression - II (Error and Regularization Contourss)
+We saw that both Ridge and Lasso techniques regularize the coefficients by reducing their magnitude. In other words, they cause **shrinkage** of the coefficients. Ridge and Lasso perform shrinkage differently. Specifically, Lasso shrinks some of the coefficients to zero, thus performing **feature selection**. Let's try to understand how this happens.
+
+Let's say that we have two model parameters (coefficients) **α1** and **α2** whose optimal values are to be found. We know that the **regularised cost function** has two components — the **error term** and the **regularisation term**. The figure below is a schematic illustration of the error (red lines) and regularisation terms (green dotted curves for ridge regression and solid blue lines for lasso regression) contours. The two axes represent 
+α1 and α2 respectively.
+
+![title](img/ridge_lasso_contour.png)
+
+A **contour** of a function **f(α)** is a trace (locus) of the points that satisfy the equation **f(α)=c** for some constant **c**. The figure shows contours for various values of c — the 'inner' contours represent lower values of the error/regularisation terms. You want to find the coefficients which **minimise both the error and the regularisation terms.**
+
+The zoomed picture of one of the crossings between an error contour and a regularisation contour in the figure illustrates this — at every crossing one could move along the arrow (black arrow in the zoomed image) shown to keep the error term same and reduce the regularisation term, giving a better solution (i.e. the sum of the coefficients reduces while keeping the error the same).
+
+Thus, the key observation here is that at the optimum solution for α (the place where the sum of the error and regularisation terms is minimum), the corresponding regularisation contour and the error contour must 'touch' each other tangentially and not 'cross'.
+
+The 'blue stars' highlight the touch points between the error contours and the lasso regularisation contours. The 'green stars' highlight the touch points between the error contours and the ridge regularisation terms. The picture illustrates the fact that because of the 'corners' in the lasso contours (unlike ridge regression), the touch points are more likely to be on one or more of the axes. This implies that the other **coefficients become zero**. Hence, lasso regression also serves as a feature selection method, whereas ridge regression does not. 
+
+## Ridge and Lasso Regression in Python
+Recall the car price case study that you had solved in 'Multiple Linear Regression'. In this segment, we will analyse the same problem and fit Ridge and Lasso Regression models.
+
+We will also perform grid-search cross-validation to tune the regularisation hyperparameter λ. 
+
+[Ridge and Lasso Regression Practice File](dataset/Car+Price+Prediction+-+Ridge+and+Lasso+Regression.ipynb)
+
+We see that the graphs are also similar but a lot of coefficients seen at the end in case of Lasso are zero, which means Lasso has performed variable selection.
 
 
