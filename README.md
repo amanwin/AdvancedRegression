@@ -124,6 +124,50 @@ To summarize, you learnt that one needs to follow a 3-step process to build a re
 3. Lastly, we wrote the generalized regression formula using the matrix format. We then summed up the errors between predicted and actual response variables and minimised the residual sum of error to arrive at the best-fit regression curve<br/>
 Another thing to note is that the term 'linear' in regression depicts the linear expression in the coefficients of the linear combination. It does not mean linear expression in raw attributes or features.
 
+## Regularized Regression
+A predictive model has to be as simple as possible, but no simpler. There is an important relationship between the complexity of a model and its usefulness in a learning context because of the following reasons: 
+1. Simpler models are usually more generic and are more widely applicable (are generalizable)
+2. Simpler models require fewer training samples for effective training than the more complex ones
+
+**Regularization** is a process used to create an optimally complex model, i.e. a model which is as simple as possible while performing well on the training data. Through regularization, one tries to strike the delicate balance between keeping the model simple, yet not making it too naive to be of any use.
+
+![title](img/simple_model.JPG)
+
+![title](img/adding_regularization.png)
+
+Essentially what the regularized regression framework does is to treat the sum of the squares of the cofficient as the measure of the model complexity and while we are trying to bring the error down by minimizing the sum of cumulative squares, we don't want alpha(cofficients) which characterize the model to become way to complex. So we balance the error term by adding another term which is sum of the sqauares of the cofficients. 
+
+![title](img/ridge_lasso.png)
+
+## Ridge and Lasso Regression - I
+You saw that linear regression does not account for model complexity - it only tries to minimize the error (e.g. MSE), although if it may result in arbitrarily complex coefficients. On the other hand,  in regularized regression, the objective function has two parts - the **error term** and the **regularization term.**
+
+![title](img/ridge_regression.JPG)
+
+Lambda in above expression is called regularization cofficient which is the hyperparameter. A high value of lambda means we are putting lot of premium in controlling the complexity of the model. So any increase in the complexity of the model(increase in cofficents) would be clamped down forcefully by the lambda as the value of lambda is large i.e. it will not allow cofficients to be very large.<br/>
+If lambda is close to zero then we are essentially doing a unregularized regression, then we are only worried about how we can bring the error term down and we don't care about whether the model itself become complex. So we can say that lambda is the balancing factor.<br/>
+Lambda equal to zero implies that there is no regularization and there is a high chance of overfitting.
+
+**Formula for calculating alpha without regularization:**
+
+![title](img/error_min.png)
+
+**Formula for calculating alpha with regularization:**
+
+![title](img/ridge_regression2.JPG)
+
+![title](img/ridge_regression3.JPG)
+
+In the formula on the left side before regularization, if X transpose X is singular then it cannot be inverted then this formula on left side can't be applied. However when we do regularization and use the modified formula on the right hand side, by adding lambda on all the diagonal elements of X transpose X then it turns out that the new matrix is far more likely to be invertible than the original matrix.<br/>
+Apart from the fact that regularization term results in a model which is not very complex. It also has this unexpected benefit which makes this whole process computationally far more stable and feasible than the original unregularized formulation of regression. This is ridge regression.
+
+There is another popular scheme of regularization which can be applied is called Lasso Regression. In ridge regression, an additional term of "sum of the squares of the coefficients" is added to the cost function along with the error term, whereas in case of lasso regression,  a regularisation term of  "sum of the absolute value of the coefficients" is added. <br/>
+Computationally lasso regression is far more intensive than ridge regression. Mathematically lasso is not as clean because you have to do an iterative procedure to arrive at the optimum whereas in ridge regression we have nice clean formula for the best fit alpha.
+
+We discussed the two commonly used regularised regression methods - Ridge regression and Lasso regression. Both these methods are used to make the regression model simpler while balancing the 'bias-variance' tradeoff. 
+
+### Pros and Cons of ridge and lasso regularization techniques
+One of the most important benefits of Lasso regression is that it results in model parameters such that the lesser important features' coefficients become zero. In other words, Lasso regression indirectly performs **feature selection**.
 
 
 
