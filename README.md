@@ -194,4 +194,33 @@ We will also perform grid-search cross-validation to tune the regularisation hyp
 
 We see that the graphs are also similar but a lot of coefficients seen at the end in case of Lasso are zero, which means Lasso has performed variable selection.
 
+## Model Selection Criteria-I
+In the following few sections, we will shift our focus towards an important aspect of regression - **model selection criteria** and **feature selection strategies**. Feature selection strategies are another way of regularizing the model - rather than modifying the cost function to make the resultant model simpler, they explicitly choose a subset of features to simplify the model.
+
+### Model Selection Criteria
+Let's start by revisiting some fundamental concepts of regression. Recall that you had studied **Residual Sum of Squares (RSS)**  and the **Total Sum of Squares (TSS)** in linear regression. Let's revisit these concepts quickly.
+
+![title](img/rss.jpg)
+
+Let's quickly recollect the terminologies used in the lecture. If is the predicted value and yiis the actual value, then RSS is given as follows:
+
+![title](img/rss1.JPG)
+
+![title](img/rss2.JPG)
+
+## Model Selection Criteria-II
+In this segment, we will discuss two new model selection criteria which are not specific to regression but are used in a variety of problems - **Akaike Information Criterion (AIC)** and **Bayesian Information Criterion (BIC).**
+
+![title](img/AIC.png)
+
+![title](img/BIC.png)
+
+To summarise, BIC works well when 'n' is large (i.e. for large datasets) - if the dataset is small, then BIC can be a very unreliable estimate.
+
+![title](img/summary.JPG)
+
+![title](img/adj_rsqaure.JPG)
+
+
+
 
